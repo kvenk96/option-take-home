@@ -1,0 +1,38 @@
+<div class="left-panel">
+    <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="input-group">
+            <label>
+                Strike:
+                <input type="number" name="strike" [(ngModel)]="strike" required />
+            </label>
+        </div>
+        <br>
+        <div class="input-group">
+            <label>
+                Trigger Tmax:
+                <input type="number" name="triggerTmax" [(ngModel)]="triggerTmax" required />
+            </label>
+        </div>
+        <br>
+        <div class="input-group">
+            <label>
+                Start Year:
+                <input type="number" name="startYear" [(ngModel)]="startYear" required />
+            </label>
+        </div>
+        <button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+    <br>
+    <div class="future-section">
+        <div>
+            <label>
+                NSW Q423 Future:
+                <span class="future">{{ futureValue | number: '1.2-2' }}</span>
+            </label>
+        </div>
+        <br>
+        <div>
+            <button (click)="getFuture()">Refresh</button>
+        </div>
+    </div>
+</div>
